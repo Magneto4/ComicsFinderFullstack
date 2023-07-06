@@ -19,7 +19,6 @@
     "build": "tsc -p tsconfig.build.json",
     "prestart:prod": "rimraf dist && npm run build",
     "postinstall": "npm run prestart:prod",
-	"rimraf": "./node_modules/rimraf/bin.js",
     "start:prod": "node dist/main.js"
   },
   "dependencies": {
