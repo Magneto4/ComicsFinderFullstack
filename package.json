@@ -16,10 +16,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-	"build": "tsc -p tsconfig.build.json",
-	"prestart:prod": "rimraf dist && npm run build",
-	"postinstall": "npm run prestart:prod",
-	"start:prod": "node dist/main.js"
+    "build": "tsc -p tsconfig.build.json",
+    "prestart:prod": "rimraf dist && npm run build",
+    "postinstall": "npm run prestart:prod",
+    "start:prod": "node dist/main.js"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -32,6 +32,7 @@
     "nest-puppeteer": "^1.1.1",
     "puppeteer": "^20.4.0",
     "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.1",
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
