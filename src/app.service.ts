@@ -1,8 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import getList from './getList';
 
 @Injectable()
-export class AppService {
-  getHello(): string {
-    return 'Hello World!';
-  }
+export class AppService implements OnModuleInit {
+	onModuleInit() {
+		console.log(`Initialization...`);
+		getList("Marvel_Staff/Writers");
+		getList("Marvel_Staff/Pencilers");
+		getList("Marvel_Staff/Inkers");
+		getList("Marvel_Staff/Colorists");
+		getList("Marvel_Staff/Letterers");
+		getList("Marvel_Staff/Editors");
+		getList("Characters");
+	}
+	getHello(): string {
+		return 'Hello World!';
+	}
 }
