@@ -24,7 +24,7 @@ export class AppController {
 
 	@Get()
 	getHello(): string {
-		return "this is a test string";
+		return "changed string for a test";
 	}
 
 	@Get('/appearances')
