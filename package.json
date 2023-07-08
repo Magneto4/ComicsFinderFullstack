@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-	"prestart:prod": "rimraf dist && npm run build",
-	"postinstall": "npm run prestart:prod",
-	"start:prod": "node dist/main.js",
-	"heroku-postbuild": "cd client && npm install --only=prod && npm run build"
+    "prestart:prod": "rimraf dist && npm run build",
+    "postinstall": "npm run prestart:prod",
+    "start:prod": "node dist/main.js",
+    "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
   },
   "dependencies": {
     "@nestjs/common": "^9.4.3",
@@ -21,6 +21,7 @@
     "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
     "nest-puppeteer": "^1.1.1",
+    "openssl": "^2.0.0",
     "puppeteer": "^20.4.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
