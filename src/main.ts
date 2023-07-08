@@ -1,10 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import getList from './getList';
-import { join } from 'path';
-import * as express from 'express';
-
-const CLIENT_FILES = join(__dirname, '..', '..', 'client', 'dist');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,7 +15,6 @@ async function bootstrap() {
   getList("Marvel_Staff/Colorists");
   getList("Marvel_Staff/Letterers");
   getList("Marvel_Staff/Editors");
-  app.use(express.static(CLIENT_FILES));
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(8000);
 }
 bootstrap();
