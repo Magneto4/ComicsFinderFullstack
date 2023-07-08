@@ -3,6 +3,9 @@ import "../css/App.css"
 import Banner from "./Banner";
 
 export default function App() {
+	useEffect(() => {
+		document.title = 'Comics finder';
+	}, []);
 	return (<div class="app">
 		<Banner />
 		<UserInput />
