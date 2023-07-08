@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+	"start:prod": "npm install -g serve && npm start:dev" 
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
