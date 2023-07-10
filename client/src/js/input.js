@@ -34,7 +34,7 @@ export default function UserInput() {
 		setComicsList(["loading"]);
 		axios.post('/appearances', body)
 		.then(function (response) {
-			setComicsList(response.data.split(","));
+			setComicsList(response.data);
 		})
 		.catch(function (error) {
 			console.log(error);

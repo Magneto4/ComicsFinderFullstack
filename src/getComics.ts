@@ -132,10 +132,5 @@ export default async function getComics(request:Request) {
 	for (let i = 1; i < allSets.length; i++) {
 		 intersect(finalSet, allSets[i]);
 	}
-	var results:string = "";
-	for (var comic of finalSet) {
-		results += comic + ",";
-	}
-	results = results.slice(0, -1);
-	return results;
+	return finalSet;
 }
