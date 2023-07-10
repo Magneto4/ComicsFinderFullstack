@@ -58,7 +58,7 @@ export default async function getList(category: string) {
 				break ;
 		}
 		nameSet.delete("Character Index");
+		console.log("done getting " + category + " list");
 	}
-	console.log("done getting " + category + " list");
 	return nameSet;
 }

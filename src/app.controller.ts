@@ -27,18 +27,18 @@ export class AppController {
 	async createMessage(@Body() message: Request){
 		console.log("/appearances");
 		console.log(message);
-		return await getComics(message);
+		return {list: await getComics(message)};
 	}
 
 	@Get('/list/:category')
 	async createMessage2(@Param('category') category: string) {
 		console.log("/list");
-		return await getList(category);
+		return {list: await getList(category)};
 	}
 
 	@Get('/list/Marvel_Staff/:category')
 	async createMessage3(@Param('category') category: string) {
 		console.log("/list");
-		return await getList("Marvel_Staff/" + category);
+		return {list: await getList("Marvel_Staff/" + category)};
 	}
 }
