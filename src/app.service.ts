@@ -11,7 +11,7 @@ export class AppService implements OnModuleInit {
 		getList("Marvel_Staff/Colorists");
 		getList("Marvel_Staff/Letterers");
 		getList("Marvel_Staff/Editors");
-		// getList("Characters");
+		getList("Characters");
 		console.log("Done getting lists")
 	}
   getHello(): string {
