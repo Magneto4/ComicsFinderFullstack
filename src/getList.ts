@@ -8,7 +8,7 @@ class namedSet {
 
 const	sets:Array<namedSet> = [];
 
-export default async function getList(category: string) {
+export default async function getList(category:string) {
 	let	nameSet = new Set<string>();
 	let URL = "https://marvel.fandom.com/wiki/Category:" + category;
 	let exists = false;
@@ -58,7 +58,10 @@ export default async function getList(category: string) {
 				break ;
 		}
 		nameSet.delete("Character Index");
-		console.log("done getting " + category + " list");
 	}
-	return nameSet;
+	let names = "";
+	for (let name of nameSet) {
+		names += name + ",";
+	}
+	return names;
 }
