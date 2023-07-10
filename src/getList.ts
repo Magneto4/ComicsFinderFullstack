@@ -30,6 +30,7 @@ export default async function getList(category:string) {
 				name:category,
 				set:nameSet
 			});
+			console.log(URL);
 			var	html = await axios.get(URL)
 			.catch(function (error) {
 				console.log(error);

@@ -4,7 +4,6 @@ import getList from './getList';
 @Injectable()
 export class AppService implements OnModuleInit {
 	onModuleInit() {
-		console.log("getting lists...");
 		console.log(`Initialization...`);
 		getList("Marvel_Staff/Writers");
 		getList("Marvel_Staff/Pencilers");
@@ -12,8 +11,7 @@ export class AppService implements OnModuleInit {
 		getList("Marvel_Staff/Colorists");
 		getList("Marvel_Staff/Letterers");
 		getList("Marvel_Staff/Editors");
-		// getList("Characters");
-		console.log("finished getting all lists.")
+		getList("Characters");
 	}
 	getHello(): string {
 		return 'Hello World!';
