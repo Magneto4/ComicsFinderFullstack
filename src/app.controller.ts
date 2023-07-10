@@ -33,8 +33,7 @@ export class AppController {
 	@Get('/list/:category')
 	async createMessage2(@Param('category') category: string) {
 		console.log("/list");
-		// return await getList(category);
-		return [];
+		return await getList(category);
 	}
 
 	@Get('/list/Marvel_Staff/:category')
