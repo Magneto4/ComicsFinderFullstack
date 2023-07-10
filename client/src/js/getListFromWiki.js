@@ -1,10 +1,7 @@
 import axios from "axios";
 
 export default async function getListFromWiki(category, list) {
-	const body = {
-		category: category,
-	}
-	await axios.get('/list', body)
+	await axios.get('/list/' + category)
 	.then(function (response) {
 		var array = response.data.split(",");
 		if (array[array.length - 1] === "")

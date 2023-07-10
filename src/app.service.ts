@@ -14,7 +14,7 @@ export class AppService implements OnModuleInit {
 		// getList("Characters");
 		console.log("Done getting lists")
 	}
-	getHello(): string {
-		return 'Hello World!';
-	}
+  getHello(): string {
+    return 'Hello World!';
+  }
 }

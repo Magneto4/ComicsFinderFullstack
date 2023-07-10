@@ -1,21 +1,17 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 import getList from './getList';
 import getComics from './getComics';
 
 
 class Request {
-	characters: string;
-	writers: string;
-	pencilers: string;
-	inkers: string;
-	colorists: string;
-	letterers: string;
-	editors: string;
-}
-
-class ListRequest {
-	category: string;
+	characters: string[];
+	colorists: string[];
+	editors: string[];
+	inkers: string[];
+	letterers: string[];
+	pencilers: string[];
+	writers: string[];
 }
 
 @Controller()
@@ -27,13 +23,23 @@ export class AppController {
 		return "this is a test string";
 	}
 
-	@Get('/appearances')
+	@Post('/appearances')
 	async createMessage(@Body() message: Request){
+		console.log("/appearances");
+		console.log(message);
 		return await getComics(message);
 	}
 
-	@Get('/list')
-	async createMessage2(@Body() message: ListRequest){
-		return await getList(message.category);
+	@Get('/list/:category')
+	async createMessage2(@Param('category') category: string) {
+		console.log("/list");
+		// return await getList(category);
+		return [];
+	}
+
+	@Get('/list/Marvel_Staff/:category')
+	async createMessage3(@Param('category') category: string) {
+		console.log("/list");
+		return await getList("Marvel_Staff/" + category);
 	}
 }

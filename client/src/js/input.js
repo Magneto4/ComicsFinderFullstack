@@ -7,18 +7,14 @@ import { useState } from 'react';
 export default function UserInput() {
 	const [comicsList, setComicsList] = useState([]);
 
-	function convertToString(formSection) {
+	function convertToArray(formSection) {
 		if (formSection == null) {
-			return "";
+			return [];
 		}
 		let elements = formSection.getElementsByClassName('search-tag-item');
-		let stringList = "";
-
+		let stringList = [];
 		for (var i = 0; i < elements.length; i++) {
-			stringList += elements[i].textContent;
-			if (i < elements.length - 1) {
-				stringList += ',';
-			}
+			stringList.push(elements[i].textContent);
 		}
 		return stringList;
 	}
@@ -27,16 +23,16 @@ export default function UserInput() {
 		event.preventDefault();
 
 		var	body = {
-			characters: convertToString(document.getElementById('search-tags-characters')),
-			writers: convertToString(document.getElementById('search-tags-writers')),
-			pencilers: convertToString(document.getElementById('search-tags-pencilers')),
-			inkers: convertToString(document.getElementById('search-tags-inkers')),
-			colorists: convertToString(document.getElementById('search-tags-colorists')),
-			letterers: convertToString(document.getElementById('search-tags-letterers')),
-			editors: convertToString(document.getElementById('search-tags-editors'))
+			characters: convertToArray(document.getElementById('search-tags-characters')),
+			writers: convertToArray(document.getElementById('search-tags-writers')),
+			pencilers: convertToArray(document.getElementById('search-tags-pencilers')),
+			inkers: convertToArray(document.getElementById('search-tags-inkers')),
+			colorists: convertToArray(document.getElementById('search-tags-colorists')),
+			letterers: convertToArray(document.getElementById('search-tags-letterers')),
+			editors: convertToArray(document.getElementById('search-tags-editors'))
 		};
 		setComicsList(["loading"]);
-		axios.get('/appearances', body)
+		axios.post('/appearances', body)
 		.then(function (response) {
 			setComicsList(response.data.split(","));
 		})
