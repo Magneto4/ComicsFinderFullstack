@@ -10,7 +10,7 @@
     "prestart:prod": "rimraf dist && npm run build",
     "postinstall": "npm run prestart:prod",
     "start:prod": "node dist/main.js",
-    "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=prod && npm run build && cp -r build .."
   },
   "dependencies": {
     "@nestjs/common": "^9.4.3",
