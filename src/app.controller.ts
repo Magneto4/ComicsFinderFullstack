@@ -36,7 +36,6 @@ export class AppController {
 			});
 		} catch (err) {
 			console.log(err);
-			return 'Something went wrong';
 		}
 		return await getComics(message);
 	}
