@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function getListFromWiki(category, setList) {
-	await axios.get('http://localhost:5000/list/' + category)
+	await axios.get('/api/list/' + category)
 	.then(function (response) {
 		setList(response.data)
 	})
