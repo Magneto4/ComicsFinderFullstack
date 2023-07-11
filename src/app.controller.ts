@@ -14,7 +14,7 @@ class Request {
 	writers: string[];
 }
 
-@Controller()
+@Controller('/api')
 export class AppController {
 	constructor(private readonly appService: AppService) {}
 

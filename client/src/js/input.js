@@ -32,7 +32,7 @@ export default function UserInput() {
 			editors: convertToArray(document.getElementById('search-tags-editors'))
 		};
 		setComicsList(["loading"]);
-		axios.post('/appearances', body)
+		axios.post('/api/appearances', body)
 		.then(function (response) {
 			setComicsList(response.data.split(","));
 		})
