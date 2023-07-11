@@ -14,7 +14,7 @@ export default function App() {
 				<meta property="og:type" content="website"/>
 				<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/800px-Marvel_Logo.svg.png"/>
 			</Helmet>
-			<div class="app">
+			<div className="app">
 				<Banner />
 				<UserInput />
 			</div>

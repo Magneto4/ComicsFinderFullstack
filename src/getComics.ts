@@ -18,7 +18,6 @@ async function getCharComics(char:string, type:string)
 	
 	while (1)
 	{
-		console.log(URL);
 		const	html = await axios.get(URL)
 		.catch((err) => {
 			console.log("Missing data");
@@ -132,10 +131,6 @@ export default async function getComics(request:Request) {
 	for (let i = 1; i < allSets.length; i++) {
 		 intersect(finalSet, allSets[i]);
 	}
-	var results:string = "";
-	for (var comic of finalSet) {
-		results += comic + ",";
-	}
-	results = results.slice(0, -1);
-	return results;
+
+	return (Array.from(finalSet));
 }

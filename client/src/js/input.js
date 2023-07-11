@@ -45,13 +45,13 @@ export default function UserInput() {
 		if (comicsList.length === 0)
 			return "";
 		if (comicsList.length === 1 && comicsList[0] === "loading")
-			return (<div class="loading">loading...</div>);
+			return (<div className="loading">loading...</div>);
 		return (
-			<div class="results">
-				<h4 class="results-title">Comics:</h4>
+			<div className="results">
+				<h4 className="results-title">Comics:</h4>
 				<ul>
 					{comicsList.map((option) => (
-						<li class="result-item" id={option}>
+						<li className="result-item" id={option}>
 							{option}
 						</li>
 					))}
@@ -62,8 +62,8 @@ export default function UserInput() {
 	}
 
 	return (
-		<div class='form'>
-			<div class="questions">
+		<div className='form'>
+			<div className="questions">
 				<form name="input" onSubmit={handleSubmit}>
 					<SelectList name="characters" category="Characters"/>
 					<SelectList name="writers" category="Marvel_Staff/Writers"/>
@@ -72,12 +72,12 @@ export default function UserInput() {
 					<SelectList name="colorists" category="Marvel_Staff/Colorists"/>
 					<SelectList name="letterers" category="Marvel_Staff/Letterers"/>
 					<SelectList name="editors" category="Marvel_Staff/Editors"/>
-					<div id='submit' class="submit">
-						<input class="submit-button" type="submit" value="Get comic book list"/>
+					<div id='submit' className="submit">
+						<input className="submit-button" type="submit" value="Get comic book list"/>
 					</div>
 				</form>
 			</div>
-			<div class="result-section">
+			<div className="result-section">
 				{getResults()}
 			</div>
 		</div>

@@ -1,14 +1,9 @@
 import axios from "axios";
 
-export default async function getListFromWiki(category, list) {
-	await axios.get('/api/list/' + category)
+export default async function getListFromWiki(category, setList) {
+	await axios.get('http://localhost:5000/list/' + category)
 	.then(function (response) {
-		var array = response.data.split(",");
-		if (array[array.length - 1] === "")
-			array.pop();
-		for (var elem of array) {
-			list.push(elem);
-		}
+		setList(response.data)
 	})
 	.catch(function (error) {
 		console.log(error);
