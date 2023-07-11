@@ -117,7 +117,7 @@ export default function SelectList (props) {
 					<div
 						className="search-results-item"
 						id={index}
-						onclick={function (event) {onItemClick(event, el)}}
+						onClick={function (event) {onItemClick(event, el)}}
 					>
 					{el}
 					</div>
