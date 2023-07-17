@@ -1,7 +1,7 @@
 import getListFromWiki from './getListFromWiki';
 import React from 'react';
 import "../css/SelectList.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CloseIcon = () => {
     return (
@@ -11,10 +11,9 @@ const CloseIcon = () => {
     );
 };
 
-
-
 export default function SelectList (props) {
 	const [list, setList] = useState([]);
+	const [filteredList, setFilteredList] = useState([]);
 	const [selectedValue, setSelectedValue] = useState([]);
 	const [searchValue, setSearchValue] = useState("");
 	const [onValue, setOnValue] = useState(-1);
@@ -31,6 +30,7 @@ export default function SelectList (props) {
     };
 	
 	function onItemClick (event, option) {
+		console.log("here");
 		event.preventDefault();
 		newSelectedValue = selectedValue;
 		if (newSelectedValue.findIndex((o) => o === option) < 0) {
@@ -100,20 +100,33 @@ export default function SelectList (props) {
 		setOnValue(newValue);
 	}
 
-	function Results () {
-		if (searchValue.length === 0) {
-			return <></>;
-		}
+	useEffect(() => {
 		function condition (el) {
 			const re = RegExp(`.*${searchValue.toLowerCase().split('').join('.*')}.*`)
 			return (el.toLowerCase().match(re))
 		}
+		let timer = setTimeout(() => {
+			if (searchValue) {
+				console.log("here");
+				setFilteredList(list.filter(el => condition(el)))
+			}
+		}, 500)
+
+		return () => clearTimeout(timer);
+	}, [searchValue, list])
+
+
+	function Results () {
+		if (searchValue.length === 0) {
+			return <></>;
+		}
+
 		return (
 			<div
 				className="search-results"
 				id={"search-results-" + props.name}
 			>
-				{list.filter(el => condition(el)).map((el, index) => (
+				{filteredList.map((el, index) => (
 					<div
 						className="search-results-item"
 						id={index}
