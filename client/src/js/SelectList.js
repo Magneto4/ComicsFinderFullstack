@@ -107,7 +107,6 @@ export default function SelectList (props) {
 		}
 		let timer = setTimeout(() => {
 			if (searchValue) {
-				console.log("here");
 				setFilteredList(list.filter(el => condition(el)))
 			}
 		}, 500)
